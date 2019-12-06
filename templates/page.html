@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+li a:hover {
+    background-color: #111111;
+}
+</style>
+</head>
+<body>
+
+<!-- This is the data or posts section -->
+{% for post in posts%}
+    <table style="width:100%">
+        <tr>
+            <td> page offset - {{ paginator.Offset() }} </td>
+            <td>{{ post }}</td>
+        </tr>
+
+    </table>
+{% endfor %}
+
+<!-- This is the main paginator section -->
+{% if paginator.HasPages() %}
+    <ul >
+        {%if paginator.HasPrev() %}
+            <li><a href="{{paginator.PageLinkFirst()}}">First</a></li>
+            <li><a href="{{paginator.PageLinkPrev()}}">&lt;</a></li>
+        {% else %}
+            <li class="disabled"><a> First</a></li>
+            <li class="disabled"><a>&lt;</a></li>
+        {% endif %}
+
+        {% for page in paginator.Pages%}
+
+                <li {% if paginator.IsActive(page) %} class="active"{% endif %} >
+                    <a href="{{ paginator.PageLink(page) }} ">{{page}}</a>
+
+                </li>
+
+        {% endfor %}
+
+        {% if paginator.HasNext %}
+            <li><a href="{{paginator.PageLinkNext()}}">&gt;</a></li>
+            <li><a href="{{paginator.PageLinkLast()}}">Last</a></li>
+        {% else %}
+            <li class="disabled"><a>&gt;</a></li>
+            <li class="disabled"><a>Last</a></li>
+        {%endif%}
+    </ul>
+{%endif%}
+
+
+</body>
+</html>
