@@ -15,4 +15,8 @@
 
 pkg/
 bin/
-src/
+dummy/
+backup/
+src/github.com/
+src/golang.org/
+

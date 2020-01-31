@@ -52,7 +52,7 @@ func ListAllUsers(c echo.Context) (error){
 	// if you also have more data, set it context
 	data = pongo2.Context{"paginator":paginator, "posts":myusernames}
 
-	return c.Render(http.StatusOK, "templates/page.html", data)
+	return c.Render(http.StatusOK, "resources/index.html", data)
 }
 
 func main() {
@@ -60,6 +60,8 @@ func main() {
 	e := echo.New()
 	e.Renderer = MainRenderer // This example does not include the renderer.
 
+
+	e.Static("/assets", "resources/assets")
 	// Middleware
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
