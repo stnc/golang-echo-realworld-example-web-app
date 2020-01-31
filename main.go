@@ -28,7 +28,26 @@ func NewSlice(start, count, step int) []int {
 
 func ListAllUsers(c echo.Context) (error){
 	// Lets use the Forbes top 7.
-	usernames := []string{"Larry Ellison","Carlos Slim Helu", "Mark Zuckerberg", "Amancio Ortega ", "Jeff Bezos", " Warren Buffett ", "Bill Gates"}
+	usernames := []string{
+		"Larry Ellison",
+		"Carlos Slim Helu", 
+		"Mark Zuckerberg",
+	 	"Amancio Ortega ", 
+		 "Jeff Bezos", 
+		 " Warren Buffet ",
+		  "Bill Gates",
+		  "selman tunç",
+		  "murat ohdadssd",
+		  "john yedfd",
+		  "lorem ipsum",
+		  "lorem ipsum2",
+		  "lorem ipsum3",
+		  "lorem ipsum4",
+		  "lorem ipsum5",
+		  "lorem ipsum6",
+		  "lorem ipsum7",
+		  "lorem ipsum8",
+		}
 
 	// sets paginator with the current offset (from the url query param)
 	postsPerPage := 2
@@ -58,10 +77,9 @@ func ListAllUsers(c echo.Context) (error){
 func main() {
 	// Echo instance
 	e := echo.New()
-	e.Renderer = MainRenderer // This example does not include the renderer.
+	e.Renderer = MainRenderer //pongo init
 
-
-	e.Static("/assets", "resources/assets")
+	e.Static("/assets", "resources/assets") //https://echo.labstack.com/guide/static-files
 	// Middleware
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
