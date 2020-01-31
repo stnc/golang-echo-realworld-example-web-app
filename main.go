@@ -44,7 +44,7 @@ func index(db *gorm.DB) func(echo.Context) error {
 		db.Debug().Limit(postsPerPage).Order("id asc").Offset(offset).Find(&posts)
 
 		data = pongo2.Context{"paginator": paginator, "posts": posts}
-		return c.Render(http.StatusOK, "resources/index.html", data)
+		return c.Render(http.StatusOK, "resources/create.html", data)
 	}
 }
 
