@@ -1,13 +1,14 @@
 
-# Golang  Echo framework,Pongo2 template,GORM,Pagination
+# tutorial 2 Golang  Echo framework,Pongo2 template,GORM,Pagination
 # SCREENSHOT
+<img  src="https://raw.githubusercontent.com/stnc/golang-echo-gorm-pagination-BLOG/echo-sqllite/srcshot.png">
+Links
+
+https://github.com/stnc/golang-echo-gorm-pagination-BLOG/tree/echo-sqllite
 
 
-
-
-# Golang echo framework pongo2 template engine and pagination example
-files 
-
+# tutorial 1 Golang echo framework pongo2 template engine and pagination example
+Links
 https://github.com/stnc/golang-echo-gorm-pagination-BLOG/tree/echo-pongo-pagination
 
 golang blog echo and pongo2 and pagination tutorials 
