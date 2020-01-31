@@ -1,7 +1,7 @@
 
 # tutorial 2 
 
-## Golang  Echo framework,Pongo2 template,GORM,Pagination
+## Golang  Echo framework,GORM, Pongo2 template,Pagination
 
 <strong> SCREENSHOT </strong>
 
@@ -13,7 +13,7 @@ https://github.com/stnc/golang-echo-gorm-pagination-BLOG/tree/echo-sqllite
 
 
 # tutorial 1 
-## Golang echo framework pongo2 template engine and pagination example
+## Golang echo framework, pongo2 template engine and pagination example
 
 Links
 https://github.com/stnc/golang-echo-gorm-pagination-BLOG/tree/echo-pongo-pagination
