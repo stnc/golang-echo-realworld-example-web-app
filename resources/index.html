@@ -8,13 +8,13 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Simple Sidebar - Start Bootstrap Template</title>
+  <title>Golang Echo fw and GORM crud  </title>
 
   <!-- Bootstrap core CSS -->
-  <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="assets/css/simple-sidebar.css" rel="stylesheet">
+  <link href="/assets/css/simple-sidebar.css" rel="stylesheet">
 
 </head>
 
@@ -24,14 +24,11 @@
 
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">Start Bootstrap </div>
+      <div class="sidebar-heading">Menu</div>
       <div class="list-group list-group-flush">
-        <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
+        <a href="/" class="list-group-item list-group-item-action bg-light">List</a>
+        <a href="/create" class="list-group-item list-group-item-action bg-light">Create Post</a>
+
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -70,20 +67,36 @@
       </nav>
 
       <div class="container-fluid">
-        <h1 class="mt-4">Golang = Echo framework,Pongo2 template,GORM,Pagination</h1>
+        <h1 class="mt-4">Golang = Echo fw , Gorm CRUD ,Pongo2 template,Pagination</h1>
       </div>
 
 
       <table class="table" >
-        <thead>
+        <thead class="thead-dark">
           <tr>
-            <th scope="col">Post Data </th>
+            <th scope="col">Title </th>
+            <th scope="col">Content </th>
+            <th scope="col">Actions </th>
           </tr>
         </thead>
         <tbody>
           {% for post in posts%}
           <tr>
             <td>{{post.Title}}</td>
+            <td>{{post.Content}}</td>
+            <td>
+              
+            
+            <a class="btn btn-outline-primary" href="/post/show/{{post.ID}}" role="button">Show</a>
+            <a class="btn btn-outline-info" href="/post/edit/{{post.ID}}" role="button">Edit</a>
+           
+
+            <form method="POST" action="post/{{ post.ID }}" accept-charset="UTF-8" style="display:inline">
+              <input name="_method" type="hidden" value="DELETE">
+              <button class="btn btn-outline-danger" type="submit">Delete</button>
+          </form>
+          
+            </td>
           </tr>
           {% endfor %}
         </tbody>
@@ -131,8 +144,8 @@
   <!-- /#wrapper -->
 
   <!-- Bootstrap core JavaScript -->
-  <script src="assets/jquery/jquery.min.js"></script>
-  <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/jquery/jquery.min.js"></script>
+  <script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Menu Toggle Script -->
   <script>

@@ -9,7 +9,7 @@
   <meta name="author" content="">
 
   <title>Golang Echo fw and GORM crud  </title>
-  
+
   <!-- Bootstrap core CSS -->
   <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -35,7 +35,6 @@
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
-
       {% if flashMsg %}
       <!-- alert -->
       <div class="col-md-12">
@@ -50,7 +49,7 @@
          <div class="card-body">
            <div class="alert alert-{{flashMsgType}} alert-dismissible">
              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-             <h5><i class="icon fas fa-check"></i> waring!</h5>
+             <h5><i class="icon fas fa-check"></i> warning!</h5>
             {{flashMsg}}
            </div>
          </div>
@@ -68,26 +67,25 @@
             <div class="box-header with-border">
               <h3 class="box-title">{{title}}</h3>
             </div>
-            <form method="POST" action="/store" accept-charset="UTF-8"
-            class="form-control1 add-new-post1" id="formId" enctype="multipart/form-data">
+  
+
 
             <div class="form-group">
               <label for="Title">Title *</label>
        
-              <input type="text" class="form-control "
-                id="Title" value="" name="Title" placeholder="title">
+              {{post.Title}}
             </div>
-  
+  <hr>
 
             <div class="form-group">
               <label>Content</label>
-              <textarea class="form-control" name="Content" rows="3"
-                placeholder="Content"></textarea>
+              {{post.Content}}
             </div>
   
    
             <div class="card-footer">
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <a class="btn btn-outline-primary" href="/" role="button">Homepage</a>
+              <a class="btn btn-outline-info" href="/post/edit/{{post.ID}}" role="button">Edit</a>
             </div>
 
             </form>
