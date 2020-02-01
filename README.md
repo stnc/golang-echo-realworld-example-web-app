@@ -28,12 +28,15 @@ https://github.com/stnc/golang-echo-gorm-pagination-BLOG/tree/crud
 
 <hr>
 use of GORM (for sqlite),pagination,pongo2 template engine  with echo framework
+
 https://github.com/stnc/golang-echo-gorm-pagination-BLOG/tree/echo-sqllite
 
 ## OTHERS DOC 
 jinja 2 doc  (like pongo 2)
+
 https://docs.saltstack.com/en/latest/topics/jinja/index.html
 
 
 <strong> Special Thanks </strong>
+
 https://startbootstrap.com/templates/simple-sidebar/
