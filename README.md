@@ -1,7 +1,18 @@
 
 # tutorial 3 
 
-## Golang  Echo framework,GORM CRUD,Pongo2 template,Pagination
+## what will you learn in this lesson?
+
+
+<strong> Echo framework </strong>
+
+<strong> crud with gorm (GORM CRUD) create,read,update,delete </strong>
+
+<strong> Pongo2 template </strong>
+
+<strong>Pagination</strong>
+
+<hr>
 
 <strong> SCREENSHOT </strong>
 
