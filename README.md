@@ -45,6 +45,7 @@ Links
 
 https://github.com/stnc/golang-echo-gorm-pagination-BLOG/tree/echo-sqllite
 
+<a href="https://github.com/stnc/golang-echo-gorm-pagination-BLOG/archive/echo-sqllite.zip">DOWNLOAD</a>
 
 # tutorial 1 
 
@@ -59,6 +60,7 @@ https://github.com/stnc/golang-echo-gorm-pagination-BLOG/tree/echo-sqllite
 Links
 https://github.com/stnc/golang-echo-gorm-pagination-BLOG/tree/echo-pongo-pagination
 
+<a href="https://github.com/stnc/golang-echo-gorm-pagination-BLOG/archive/echo-pongo-pagination.zip">DOWNLOAD</a>
 
 <hr>
 <strong> SCREENSHOT </strong>
