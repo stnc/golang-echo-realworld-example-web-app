@@ -21,7 +21,9 @@
 
 Links
 
-https://github.com/stnc/golang-echo-gorm-pagination-BLOG/tree/echo-sqllite
+https://github.com/stnc/golang-echo-gorm-pagination-BLOG/tree/crud
+
+<a href="https://github.com/stnc/golang-echo-gorm-pagination-BLOG/archive/crud.zip">DOWNLOAD</a>
 
 # tutorial 2 
 
