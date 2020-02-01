@@ -29,7 +29,7 @@ https://github.com/stnc/golang-echo-gorm-pagination-BLOG/tree/echo-sqllite
 
 <strong>Echo framework </strong>
 
-<strong>GORM  </strong>
+<strong>GORM (sqlite)</strong>
 
 <strong> Pongo2 template </strong>
 

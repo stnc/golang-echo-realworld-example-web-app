@@ -1,5 +1,10 @@
 package main
 
+/*
+license : www.selmantunc.com.tr
+
+*/
+
 import (
 	"fmt"
 	"net/http"
