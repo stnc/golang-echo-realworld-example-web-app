@@ -1,35 +1,35 @@
 
 # tutorial 2 
 
-## Golang  Echo framework,Pongo2 template,GORM,Pagination
+## what will you learn in this lesson?
+
+<strong>Echo framework </strong>
+
+<strong>GORM (sqlite)</strong>
+
+<strong> Pongo2 template </strong>
+
+<strong>Pagination</strong>
 
 <strong> SCREENSHOT </strong>
-
+<hr>
 <img  src="https://raw.githubusercontent.com/stnc/golang-echo-gorm-pagination-BLOG/echo-sqllite/srcshot.png">
 
 Links
 
 https://github.com/stnc/golang-echo-gorm-pagination-BLOG/tree/echo-sqllite
 
+<a href="https://github.com/stnc/golang-echo-gorm-pagination-BLOG/archive/echo-sqllite.zip">DOWNLOAD</a>
 
-# tutorial 1 
-## Golang echo framework pongo2 template engine and pagination example
+# OTHER TUTORIALS
 
-Links
+crud with gorm (GORM CRUD) with echo framework (use sqlite) 
+
+https://github.com/stnc/golang-echo-gorm-pagination-BLOG/tree/crud
+
+<hr>
+pongo2 template and pagination with echo framework
+
 https://github.com/stnc/golang-echo-gorm-pagination-BLOG/tree/echo-pongo-pagination
 
-golang blog echo and pongo2 and pagination tutorials 
-Pagination in Golang Echo using Beego pagination and [Pongo2](https://github.com/flosch/pongo2) template engine.
 
-<strong> SCREENSHOT </strong>
-<img  src="https://raw.githubusercontent.com/stnc/golang-echo-gorm-pagination-BLOG/echo-pongo-pagination/src.png">
-
-
-
-
-
-
-
-## OTHERS 
-jinja 2 doc 
-https://docs.saltstack.com/en/latest/topics/jinja/index.html
