@@ -1,4 +1,4 @@
-If it worked, please give it a star
+#  If it worked, please give it a star
 # tutorial 3 
 
 ## what will you learn in this lesson?
