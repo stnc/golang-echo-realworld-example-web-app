@@ -11,7 +11,7 @@
 
 <strong> Pongo2 template </strong>
 
-<strong>Pagination</strong>
+<strong>Pagination</strong> (beego pagination)
 
 <hr>
 
