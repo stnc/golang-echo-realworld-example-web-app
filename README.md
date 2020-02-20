@@ -74,4 +74,4 @@ https://docs.saltstack.com/en/latest/topics/jinja/index.html
 
 
 <strong> Special Thanks </strong>
-https://startbootstrap.com/templates/simple-sidebar/
+https://startbootstrap.com/templates/simple-sidebar/. and https://github.com/gothinkster/golang-gin-realworld-example-app
