@@ -15,6 +15,3 @@
 
 pkg/
 bin/
-
-go.mod
-go.sum
