@@ -20,3 +20,4 @@ backup/
 src/github.com/
 src/golang.org/
 
+go.mod
