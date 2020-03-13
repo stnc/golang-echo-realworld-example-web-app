@@ -15,10 +15,6 @@
 
 pkg/
 bin/
-dummy/
-backup/
-src/github.com/
-src/golang.org/
 
-backup
-backup
+go.mod
+go.sum
