@@ -67,6 +67,20 @@ https://github.com/stnc/golang-echo-gorm-pagination-BLOG/tree/echo-pongo-paginat
 <img  src="https://raw.githubusercontent.com/stnc/golang-echo-gorm-pagination-BLOG/echo-pongo-pagination/src.png">
 
 
+# tutorial 
+
+## what will you learn in this lesson?
+
+<strong>Echo framework </strong>
+
+<strong> Pongo2 template (master page, single page, golang echo layout) </strong>
+
+Links
+https://github.com/stnc/golang-echo-realworld-example-web-app/tree/pongo2_layout_master_page
+
+<hr>
+<strong> SCREENSHOT </strong>
+<img  src="https://raw.githubusercontent.com/stnc/golang-echo-gorm-pagination-BLOG/echo-pongo-pagination/src.png">
 
 ## OTHERS DOC 
 jinja 2 doc  (like pongo 2)
