@@ -1,4 +1,5 @@
-# golang blog echofw,pongo2,gorm,pagination tutorials  star
+# golang blog echofw,pongo2,gorm,pagination tutorials
+
 # tutorial 3 
 
 ## what will you learn in this lesson?
