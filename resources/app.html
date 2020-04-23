@@ -1,0 +1,36 @@
+<html>
+  <head>
+    {% include "header.html" %}
+  </head>
+
+  <body>
+    <div class="d-flex" id="wrapper">
+
+      {% include "MENUSMainSidebar.html" %}
+      <!-- Content Wrapper. Contains page content -->
+     
+      
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+          {% include "navbar.html" %}
+          <!-- Main content -->
+          <section class="content">
+            <div class="container-fluid">
+              {% block content %}{% endblock %}
+            </div><!-- /.container-fluid -->
+          </section>
+
+
+       
+        </div>
+        <!-- /#page-content-wrapper -->
+   
+      </div>
+      <!-- /#wrapper -->
+
+      {% include "footer.html" %}
+   
+      {% block jsInline %}{% endblock %}
+    </body>
+  </html>

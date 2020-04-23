@@ -23,9 +23,10 @@ import (
 var (
 	paginator    = &pagination.Paginator{}
 	data         = pongo2.Context{}
-	MainRenderer = renderer.Renderer{Debug: true} // use any renderer
+	mainRenderer = renderer.Renderer{Debug: true} // use any renderer
 )
 
+//Posts struct
 type Posts struct {
 	gorm.Model
 	// ID      int    `gorm:"type:int(11); NULL;index"`
@@ -45,10 +46,10 @@ func index(db *gorm.DB) func(echo.Context) error {
 		paginator = pagination.NewPaginator(c.Request(), postsPerPage, total)
 		offset := paginator.Offset()
 
-		db.Debug().Limit(postsPerPage).Order("id asc").Offset(offset).Find(&posts)
+		db.Debug().Limit(postsPerPage).Order("id desc").Offset(offset).Find(&posts)
 
 		data = pongo2.Context{"paginator": paginator, "posts": posts}
-		return c.Render(http.StatusOK, "resources/index.html", data)
+		return c.Render(http.StatusOK, "resources/blog/index.html", data)
 	}
 }
 
@@ -57,7 +58,7 @@ func create(db *gorm.DB) func(echo.Context) error {
 		data = pongo2.Context{
 			"title": "Create Post",
 		}
-		return c.Render(http.StatusOK, "resources/create.html", data)
+		return c.Render(http.StatusOK, "resources/blog/create.html", data)
 	}
 }
 
@@ -73,7 +74,7 @@ func show(db *gorm.DB) func(echo.Context) error {
 			"id":       id,
 			"dataType": dataType,
 		}
-		return c.Render(http.StatusOK, "resources/show.html", data)
+		return c.Render(http.StatusOK, "resources/blog/show.html", data)
 	}
 }
 
@@ -97,7 +98,7 @@ func store(db *gorm.DB) func(echo.Context) error {
 		db.Debug().Create(&lastID)
 
 		var id = lastID.ID
-		var id_string = strconv.FormatUint(uint64(lastID.ID), 10)
+		var idString = strconv.FormatUint(uint64(lastID.ID), 10)
 
 		// for flash message
 		var status string
@@ -106,7 +107,7 @@ func store(db *gorm.DB) func(echo.Context) error {
 		} else {
 			status = "alert"
 		}
-		c.Redirect(http.StatusMovedPermanently, "/post/edit/"+id_string)
+		c.Redirect(http.StatusMovedPermanently, "/post/edit/"+idString)
 
 		data = pongo2.Context{
 			"title":        "Create",
@@ -114,7 +115,7 @@ func store(db *gorm.DB) func(echo.Context) error {
 			"flashMsgType": status,
 			"dataType":     dataType,
 		}
-		return c.Render(http.StatusOK, "resources/create.html", data)
+		return c.Render(http.StatusOK, "resources/blog/create.html", data)
 	}
 }
 
@@ -130,7 +131,7 @@ func edit(db *gorm.DB) func(echo.Context) error {
 			"id":       id,
 			"dataType": dataType,
 		}
-		return c.Render(http.StatusOK, "resources/edit.html", data)
+		return c.Render(http.StatusOK, "resources/blog/edit.html", data)
 	}
 }
 
@@ -155,15 +156,8 @@ func update(db *gorm.DB) func(echo.Context) error {
 		}
 		db.Debug().Model(postData).Where("id = ?", id).Update(postData)
 		fmt.Println(postData)
-		/* //https://forum.golangbridge.org/t/unable-to-check-nil-for-a-struct-referenced-as-pointer/9226/3
-		// for flash message
-		var status string
-		if nil ==  postData{}  {
-			status = "success"
-		} else {
-			status = "alert"
-		}
-		*/status := "success"
+
+		status := "success"
 		c.Redirect(http.StatusMovedPermanently, "/post/edit/"+id)
 
 		data = pongo2.Context{
@@ -173,7 +167,7 @@ func update(db *gorm.DB) func(echo.Context) error {
 			"flashMsgType": status,
 			"dataType":     dataType,
 		}
-		return c.Render(http.StatusOK, "resources/edit.html", data)
+		return c.Render(http.StatusOK, "resources/blog/edit.html", data)
 	}
 }
 
@@ -214,35 +208,36 @@ func main() {
 	dbConn.DB().SetMaxIdleConns(10)
 	dbConn.DB().SetMaxOpenConns(100)
 
-	// Echo instance
-	e := echo.New()
-	e.Renderer = MainRenderer //pongo init
+	server := echo.New()
 
-	// link https://echo.labstack.com/middleware/method-override
-	e.Pre(middleware.MethodOverrideWithConfig(middleware.MethodOverrideConfig{
+	// Middleware
+
+	server.Use(middleware.Logger())
+
+	server.Use(middleware.Recover())
+
+	//method
+	server.Pre(middleware.MethodOverrideWithConfig(middleware.MethodOverrideConfig{
 		Getter: middleware.MethodFromForm("_method"),
 	}))
 
-	e.Static("/assets", "resources/assets") //https://echo.labstack.com/guide/static-files
+	server.Renderer = mainRenderer //pongo init
 
-	// Middleware
-	e.Use(middleware.Logger())
-	e.Use(middleware.Recover())
-
+	//migration run
 	// initialMigration(dbConn)
 
 	// Route => handler
-	e.GET("/", index(dbConn))
-	e.GET("/create", create(dbConn))
-	e.POST("/store", store(dbConn))
+	server.GET("/", index(dbConn))
+	server.GET("/create", create(dbConn))
+	server.POST("/store", store(dbConn))
 
-	e.GET("/post/edit/:id", edit(dbConn))
+	server.GET("/post/edit/:id", edit(dbConn))
 
-	e.GET("/post/show/:id", show(dbConn))
-	e.DELETE("/post/:id", delete(dbConn))
+	server.GET("/post/show/:id", show(dbConn))
+	server.DELETE("/post/:id", delete(dbConn))
 
-	e.POST("/post/update/:id", update(dbConn))
+	server.POST("/post/update/:id", update(dbConn))
 
 	// Start server
-	e.Logger.Fatal(e.Start(":8000"))
+	server.Logger.Fatal(server.Start(":8000"))
 }
