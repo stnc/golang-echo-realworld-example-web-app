@@ -12,18 +12,19 @@ import (
 
 	"github.com/astaxie/beego/utils/pagination"
 	"github.com/flosch/pongo2"
+	"github.com/gorilla/sessions"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
-	"github.com/labstack/echo"
 
-	"github.com/labstack/echo/middleware"
-	"github.com/siredwin/pongorenderer/renderer" // this package is not publicly available
+	"github.com/labstack/echo-contrib/session"
+	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
+	"github.com/stnc/pongo-renderer-echo4/renderer"
 )
 
 var (
-	paginator    = &pagination.Paginator{}
-	data         = pongo2.Context{}
-	mainRenderer = renderer.Renderer{Debug: true} // use any renderer
+	paginator = &pagination.Paginator{}
+	data      = pongo2.Context{}
 )
 
 //Posts struct
@@ -208,7 +209,11 @@ func main() {
 	dbConn.DB().SetMaxIdleConns(10)
 	dbConn.DB().SetMaxOpenConns(100)
 
+	mainRenderer := renderer.Renderer{Debug: true}
+
 	server := echo.New()
+
+	server.Renderer = mainRenderer
 
 	// Middleware
 
@@ -216,12 +221,12 @@ func main() {
 
 	server.Use(middleware.Recover())
 
+	server.Use(session.Middleware(sessions.NewCookieStore([]byte("KoronaSecret"))))
+
 	//method
 	server.Pre(middleware.MethodOverrideWithConfig(middleware.MethodOverrideConfig{
 		Getter: middleware.MethodFromForm("_method"),
 	}))
-
-	server.Renderer = mainRenderer //pongo init
 
 	//migration run
 	// initialMigration(dbConn)
