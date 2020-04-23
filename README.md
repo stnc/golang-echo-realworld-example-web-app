@@ -1,4 +1,4 @@
-#  If it worked, please give it a star
+# golang blog echofw,pongo2,gorm,pagination tutorials  star
 # tutorial 3 
 
 ## what will you learn in this lesson?
