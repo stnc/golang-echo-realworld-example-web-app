@@ -228,6 +228,8 @@ func main() {
 		Getter: middleware.MethodFromForm("_method"),
 	}))
 
+	server.Static("/assets", "resources/assets") //https://echo.labstack.com/guide/static-files
+
 	//migration run
 	// initialMigration(dbConn)
 
